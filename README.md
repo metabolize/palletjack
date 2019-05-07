@@ -2,11 +2,11 @@
 
 [![version](https://img.shields.io/npm/v/palletjack.svg?style=flat-square)][npm]
 [![license](https://img.shields.io/npm/l/palletjack.svg?style=flat-square)][npm]
-[![build](https://img.shields.io/circleci/project/github/paulmelnikow/palletjack.svg?style=flat-square)][build]
+[![build](https://img.shields.io/circleci/project/github/metabolize/palletjack.svg?style=flat-square)][build]
 [![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)][prettier]
 
-[npm]: https://npmjs.com/github-limited/
-[build]: https://circleci.com/gh/paulmelnikow/github-limited/tree/master
+[npm]: https://npmjs.com/palletjack/
+[build]: https://circleci.com/gh/metabolize/palletjack/tree/master
 [prettier]: https://prettier.io/
 
 Pack up files for distribution with patterns from a manifest file.
