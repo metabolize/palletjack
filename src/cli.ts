@@ -38,7 +38,7 @@ export default async function main(inArgs?: string[]) {
   const manifest = await Manifest.load(args.manifest)
   const archive = new Archive({
     manifest,
-    basedir: args.basedir,
+    basedir: args.basedir || undefined,
     overwrite: args.overwrite,
   })
   await archive.collectPaths()
