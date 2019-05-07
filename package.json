@@ -1,0 +1,79 @@
+{
+  "name": "palletjack",
+  "description": "Pack up files for distribution with patterns from a manifest file",
+  "keywords": [
+    "glob",
+    "manifest",
+    "pack",
+    "archive",
+    "distribution"
+  ],
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "bin": {
+    "palletjack": "cli.js"
+  },
+  "scripts": {
+    "prebuild": "del dist/",
+    "build": "microbundle --format es,cjs",
+    "dev": "microbundle --format es,cjs watch",
+    "check-types": "tsc --noEmit --project .",
+    "mocha": "ts-mocha --project tsconfig.json \"src/**/*.spec.ts\"",
+    "lint": "eslint \"**/*.ts\"",
+    "prettier:check": "prettier --check \"**/*.@(ts|js|yml|md|json)\"",
+    "prettier": "prettier --write \"**/*.@(ts|js|yml|md|json)\"",
+    "test": "run-p --continue-on-error check-types mocha lint prettier:check"
+  },
+  "files": [
+    "dist/index*"
+  ],
+  "repository": "metabolize/palletjack",
+  "dependencies": {
+    "@hapi/joi": "^15.0.1",
+    "@types/argparse": "^1.0.36",
+    "@types/fs-readfile-promise": "^3.0.0",
+    "@types/hapi__joi": "^15.0.1",
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^11.13.8",
+    "@types/tmp": "^0.1.0",
+    "argparse": "^1.0.9",
+    "betterset": "^2.0.1",
+    "del": "^4.1.1",
+    "globby": "^9.2.0",
+    "joi": "^14.3.1",
+    "js-yaml": "^3.13.1",
+    "multimatch": "^4.0.0",
+    "parse-gitignore": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "chai": "^4.2.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "microbundle": "^0.11.0",
+    "mocha": "^6.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.15.3",
+    "tmp-promise": "^1.0.5",
+    "ts-mocha": "^6.0.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "engines": {
+    "node": ">= 10.x"
+  },
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts"
+}
