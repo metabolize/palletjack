@@ -49,7 +49,7 @@ export default async function main(inArgs?: string[]) {
         verbose: true,
       })
     }
-    await archive.export(args.export)
+    await archive.export(args.export, { verbose: args.verbose })
   } else {
     await Manifest.logMatches(archive.matchResult as MatchResult, {
       verbose: args.verbose,

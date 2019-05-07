@@ -5,6 +5,7 @@ import 'mocha'
 import * as tmp from 'tmp-promise'
 import Manifest, { ManifestData } from './manifest'
 import yaml from 'js-yaml'
+import { createDirForTargetFile } from './fs'
 import {
   exampleManifestData,
   examplePaths,
@@ -18,9 +19,7 @@ import {
 async function createExampleTree(targetPath: string) {
   for (const examplePath of examplePaths) {
     const target = pathLib.join(targetPath, examplePath)
-    await fs.mkdir(pathLib.dirname(target), {
-      recursive: true,
-    })
+    await createDirForTargetFile(target)
     await fs.writeFile(target, '', 'utf8')
   }
 }

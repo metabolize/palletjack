@@ -2,6 +2,7 @@ import * as pathLib from 'path'
 import { promises as fs } from 'fs'
 import del from 'del'
 import Manifest, { GlobResult, MatchResult } from './manifest'
+import { copyFile } from './fs'
 
 interface ArchiveOptions {
   manifest: Manifest
@@ -46,7 +47,10 @@ export default class Archive {
     return this.matchResult as MatchResult
   }
 
-  public async export(target: string) {
+  public async export(
+    target: string,
+    { verbose = true }: { verbose: boolean }
+  ) {
     const { overwrite, basedir } = this
 
     const {
@@ -55,7 +59,18 @@ export default class Archive {
     } = await this.getMatchResult()
     const allIncludes = [...includedByManifest, ...includedByManifestOverride]
 
-    if ((await fs.lstat(target)).isDirectory()) {
+    let isDirectory
+    try {
+      isDirectory = (await fs.lstat(target)).isDirectory()
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        isDirectory = false
+      } else {
+        throw e
+      }
+    }
+
+    if (isDirectory) {
       if ((await fs.readdir(target)).length > 0) {
         if (overwrite) {
           await del(target)
@@ -69,11 +84,14 @@ export default class Archive {
       await fs.mkdir(target, { recursive: true })
     }
 
-    for (const path in allIncludes) {
+    for (const path of allIncludes) {
       const src = pathLib.join(basedir, path)
       const dst = pathLib.join(target, path)
-      // TODO Perform the copy
-      console.log(`${src} -> ${dst}`)
+      await copyFile(src, dst)
+      if (verbose) {
+        // eslint-disable-next-line no-console
+        console.log(`${src} -> ${dst}`)
+      }
     }
   }
 }
