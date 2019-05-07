@@ -8,6 +8,7 @@ import yaml from 'js-yaml'
 import {
   exampleManifestData,
   examplePaths,
+  examplePathsWithoutGlobalIgnores,
   exampleGitignore,
   expectedGitignoredPaths,
   globResult,
@@ -77,7 +78,7 @@ describe('Manifest', () => {
         const { allPaths, gitignoredPaths } = await manifest.glob({
           basedir: path,
         })
-        expect(allPaths).to.have.members(examplePaths)
+        expect(allPaths).to.have.members(examplePathsWithoutGlobalIgnores)
         expect(gitignoredPaths).to.have.members([])
       })
     })
@@ -95,7 +96,7 @@ describe('Manifest', () => {
         const { allPaths, gitignoredPaths } = await manifest.glob({
           basedir: path,
         })
-        expect(allPaths).to.have.members(examplePaths)
+        expect(allPaths).to.have.members(examplePathsWithoutGlobalIgnores)
         expect(gitignoredPaths).to.have.members(expectedGitignoredPaths)
       })
     })
@@ -127,7 +128,7 @@ describe('Manifest', () => {
           ...gitignoredAndNotInManifest,
         ]
 
-        expect(allFiles).to.have.members(examplePaths)
+        expect(allFiles).to.have.members(examplePathsWithoutGlobalIgnores)
       })
 
       it('produces the expected result', () => {

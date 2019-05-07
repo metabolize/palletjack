@@ -75,7 +75,7 @@ export default class Manifest {
   }
 
   public async glob({ basedir }: GlobOptions): Promise<GlobResult> {
-    const matchEverything = ['**/*', '**/.?*']
+    const matchEverything = ['**/*', '**/.?*', '!.git/**/*']
     const allPaths = await globby(matchEverything, { cwd: basedir, dot: true })
     const allPathsRespectingGitignore = await globby(matchEverything, {
       cwd: basedir,

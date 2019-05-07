@@ -5,6 +5,9 @@ export const exampleManifestData = {
 }
 
 export const examplePaths = [
+  '.git/COMMIT_EDITMSG',
+  '.git/FETCH_HEAD',
+  '.git/HEAD',
   '.circleci/config.yml',
   '.circleci/.DS_Store',
   '.coverage',
@@ -181,6 +184,10 @@ export const examplePaths = [
   'doc/build/_static/up.png',
   'doc/build/_static/websupport.js',
 ]
+
+export const examplePathsWithoutGlobalIgnores = examplePaths.filter(
+  path => !path.startsWith('.git/')
+)
 
 export const exampleGitignore = `
 # Created by https://www.gitignore.io/api/osx,python
@@ -476,7 +483,7 @@ export const expectedGitignoredPaths = [
 ]
 
 export const globResult = {
-  allPaths: examplePaths,
+  allPaths: examplePathsWithoutGlobalIgnores,
   gitignoredPaths: expectedGitignoredPaths,
 }
 
