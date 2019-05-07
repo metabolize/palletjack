@@ -133,11 +133,11 @@ export default class Manifest {
       .complement(pathsMatchingExclude)
       .complement(pathsMatchingIncludeOverridingGitignore)
 
-    const notInManifestAndGitignored = allNotInManifest.complement(
+    const notInManifest = allNotInManifest.complement(gitignoredPaths)
+
+    const notInManifestAndGitignored = allNotInManifest.intersection(
       gitignoredPaths
     )
-
-    const notInManifest = allNotInManifest.intersection(gitignoredPaths)
 
     return {
       includedByManifest: Array.from(includedByManifest),
