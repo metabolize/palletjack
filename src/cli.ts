@@ -46,6 +46,7 @@ export default async function main(inArgs?: string[]) {
   await archive.collectPaths()
 
   if (archive.renameErrors && archive.renameErrors.length) {
+    // eslint-disable-next-line no-console
     console.error(archive.renameErrors)
     process.exit(1)
   }

@@ -52,7 +52,7 @@ describe('Manifest', () => {
       tmp.withFile(async ({ path }) => {
         await fs.writeFile(path, yaml.safeDump(exampleManifestData), 'utf8')
         const manifest = await Manifest.load(path)
-        expect(manifest).to.deep.include(exampleManifestData)
+        expect(manifest.manifestData).to.deep.include(exampleManifestData)
       }))
   })
 
