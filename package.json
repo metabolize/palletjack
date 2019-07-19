@@ -12,12 +12,13 @@
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "palletjack": "cli.js"
+    "palletjack": "dist/cli.js"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
     "prebuild": "del dist/",
-    "build": "microbundle --format es,cjs",
-    "dev": "microbundle --format es,cjs watch",
+    "build": "tsc",
+    "dev": "tsc --watch",
     "check-types": "tsc --noEmit --project .",
     "mocha": "ts-mocha --project tsconfig.json \"src/**/*.spec.ts\"",
     "lint": "eslint \"**/*.ts\"",
@@ -26,7 +27,7 @@
     "test": "run-p --continue-on-error check-types mocha lint prettier:check"
   },
   "files": [
-    "dist/index*"
+    "dist/**/*.@(js|ts)"
   ],
   "repository": "metabolize/palletjack",
   "dependencies": {
@@ -60,7 +61,6 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "microbundle": "^0.11.0",
     "mocha": "^6.1.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3",
@@ -71,8 +71,5 @@
   },
   "engines": {
     "node": ">= 10.x"
-  },
-  "module": "dist/index.mjs",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts"
+  }
 }

@@ -10,7 +10,11 @@
     "alwaysStrict": true,
     "noImplicitReturns": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts", "**/test-*.ts"]
 }
