@@ -25,7 +25,8 @@
     "lint": "eslint \"**/*.ts\"",
     "prettier:check": "prettier --check \"**/*.@(ts|js|yml|md|json)\"",
     "prettier": "prettier --write \"**/*.@(ts|js|yml|md|json)\"",
-    "test": "run-p --continue-on-error check-types mocha lint prettier:check"
+    "test": "run-p --continue-on-error check-types mocha lint prettier:check",
+    "prepare": "npm run build"
   },
   "files": [
     "dist/**/*.@(js|ts|map)"
