@@ -1,13 +1,13 @@
 # Changelog
 
-## 1.0.0 – Jan 5, 2019
+## 0.2.0 – July 19, 2019
 
-- Remove extraneous files from distribution.
+- Attempt to ship a working transpiled CLI.
+- Add support for renaming files during export.
+- Tweak output when no files are listed.
+- Fix bugs.
+- Improve documentation.
 
-## 1.0.0 – Jan 5, 2019
-
-- Update dependencies.
-
-## 0.1.0 – Nov 2, 2017
+## 0.1.0 – May 7, 2019
 
 Initial release.
