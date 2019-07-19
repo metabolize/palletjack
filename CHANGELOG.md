@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 – July 19, 2019
+
+- Omit extraneous dependency.
+
 ## 0.2.0 – July 19, 2019
 
 - Attempt to ship a working transpiled CLI.
