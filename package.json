@@ -27,7 +27,7 @@
     "test": "run-p --continue-on-error check-types mocha lint prettier:check"
   },
   "files": [
-    "dist/index*"
+    "dist/**/*.@(js|ts)"
   ],
   "repository": "metabolize/palletjack",
   "dependencies": {
