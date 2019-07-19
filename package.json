@@ -18,6 +18,7 @@
   "scripts": {
     "prebuild": "del dist/",
     "build": "tsc",
+    "predev": "del dist/",
     "dev": "tsc --watch",
     "check-types": "tsc --noEmit --project .",
     "mocha": "ts-mocha --project tsconfig.json \"src/**/*.spec.ts\"",
@@ -27,7 +28,7 @@
     "test": "run-p --continue-on-error check-types mocha lint prettier:check"
   },
   "files": [
-    "dist/**/*.@(js|ts)"
+    "dist/**/*.@(js|ts|map)"
   ],
   "repository": "metabolize/palletjack",
   "dependencies": {

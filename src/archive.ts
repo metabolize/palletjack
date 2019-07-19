@@ -19,6 +19,7 @@ export default class Archive {
 
   public globResult?: GlobResult
   public matchResult?: MatchResult
+  public renameErrors?: string[]
 
   public constructor({
     manifest,
@@ -38,6 +39,10 @@ export default class Archive {
     this.matchResult = this.manifest.match(this.globResult, {
       respectGitignore,
     })
+    this.renameErrors = this.manifest.checkRenames(
+      this.globResult,
+      this.matchResult
+    )
   }
 
   private async getMatchResult() {
@@ -87,6 +92,16 @@ export default class Archive {
     for (const path of allIncludes) {
       const src = pathLib.join(basedir, path)
       const dst = pathLib.join(target, path)
+      await copyFile(src, dst)
+      if (verbose) {
+        // eslint-disable-next-line no-console
+        console.log(`${src} -> ${dst}`)
+      }
+    }
+
+    for (const rename of this.manifest.manifestData.rename) {
+      const src = pathLib.join(basedir, rename.from)
+      const dst = pathLib.join(target, rename.to)
       await copyFile(src, dst)
       if (verbose) {
         // eslint-disable-next-line no-console

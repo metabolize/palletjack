@@ -45,17 +45,24 @@ export default async function main(inArgs?: string[]) {
   })
   await archive.collectPaths()
 
+  if (archive.renameErrors && archive.renameErrors.length) {
+    console.error(archive.renameErrors)
+    process.exit(1)
+  }
+
   if (args.export) {
     if (args.verbose) {
-      await Manifest.logMatches(archive.matchResult as MatchResult, {
+      Manifest.logMatches(archive.matchResult as MatchResult, {
         verbose: true,
       })
+      manifest.logRename({ verbose: true })
     }
     await archive.export(args.export, { verbose: args.verbose })
   } else {
-    await Manifest.logMatches(archive.matchResult as MatchResult, {
+    Manifest.logMatches(archive.matchResult as MatchResult, {
       verbose: args.verbose,
     })
+    manifest.logRename({ verbose: args.verbose })
   }
 }
 
