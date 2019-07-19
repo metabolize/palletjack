@@ -23,8 +23,8 @@ In my contracting work, I'm often shipping code to a client that is maintained
 in an internal repository. The client needs the production code, client-facing
 readme, and scripts. They _don't_ need my internal developer notes, CI config,
 test assets, and so on. They also don't need all the gitignored bits, like
-generated code, caches, and .DS*Store, though occasionally it \_is* important to
-ship a gitignored, generated file.
+generated code, caches, and `.DS_Store`, though occasionally it _is_ important
+to ship a gitignored, generated file.
 
 It's easy enough to write a script to select certain files and copy them into
 a tarball or another git repository.
