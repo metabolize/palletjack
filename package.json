@@ -1,6 +1,6 @@
 {
   "name": "palletjack",
-  "description": "Pack up files for distribution with patterns from a manifest file",
+  "description": "Pack up files for distribution using a manifest file of glob patterns and a gitignore",
   "keywords": [
     "glob",
     "manifest",

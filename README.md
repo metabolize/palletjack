@@ -9,7 +9,15 @@
 [build]: https://circleci.com/gh/metabolize/palletjack/tree/master
 [prettier]: https://prettier.io/
 
-Pack up files for distribution with patterns from a manifest file.
+Pack up files for distribution using a manifest file of glob patterns and a gitignore.
+
+**This project is experimental! It may not work perfectly, and the CLI will change.**
+
+```console
+npx palletjack manifest outdir
+```
+
+## Motivation
 
 In my contracting work, I'm often shipping code to a client that is maintained
 in an internal repository. The client needs the production code, client-facing
@@ -36,12 +44,6 @@ This program does three things:
   - Not in manifest
   - Gitignored and not in manfiest
 - Export a project to another folder, using the interpreted manifest file.
-
-**This project is experimental! It may not work perfectly, and the CLI will change.**
-
-```console
-npx palletjack manifest outdir
-```
 
 ## Installation
 
