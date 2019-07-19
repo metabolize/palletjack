@@ -6,7 +6,7 @@ import { ArgumentParser } from 'argparse'
 import Manifest, { MatchResult } from './manifest'
 import Archive from './archive'
 
-const version = process.env.npm_package_version
+const { version } = require('../package.json')
 
 export default async function main(inArgs?: string[]) {
   // TODO Improve this interface using subcommands.
