@@ -14,7 +14,33 @@ Pack up files for distribution using a manifest file of glob patterns and a giti
 **This project is experimental! It may not work perfectly, and the CLI will change.**
 
 ```console
-npx palletjack manifest outdir
+npx palletjack manifest.yml outdir
+```
+
+Example manifest for a Python project:
+
+```yml
+include:
+  - .dockerignore
+  - LICENSE
+  - MANIFEST.in
+  - CHANGELOG.md
+  - requirements.txt
+  - setup.py
+  - docker/standalone/*
+  - mylib/**/*.py
+  - mylib/extension/**/*.{h,cc,i}
+  - examples/asset.obj
+  - scripts/run_simulation.py
+
+exclude:
+  - '**/test_*.py'
+  - mylib/testing_helpers.py
+  - mylib/internal_diagnostics.py
+
+rename:
+  - from: README-client.md
+    to: README.md
 ```
 
 ## Motivation
@@ -33,7 +59,7 @@ a tarball or another git repository.
 As the project evolve and matures, new files are added, and it's important to
 correctly classify them – for inclusion or exclusion.
 
-This program does three things:
+This program does four things:
 
 - Interpret a tree, manifest file of glob patterns, and a gitignore file into a
   list of included files.
@@ -45,6 +71,8 @@ This program does three things:
   - Not in manifest
   - Gitignored and not in manfiest
 - Export a project to another folder, using the interpreted manifest file.
+- Rename files during export. This is useful for having an internal readme that's
+  different from the readme that gets shipped.
 
 ## Installation
 
@@ -69,7 +97,12 @@ Pull requests welcome!
 ## Development
 
 Run `npm run dev` to start a development server which watches for changes in
-the local files. Then you can run `node /path/to/palletjack/dist/cli.js`.
+the local files. Then you can run `/path/to/palletjack/dist/cli.js`, or with
+sourcemap support:
+
+```
+node -r /path/to/palletjack/node_modules/source-map-support/register /path/to/palletjack/dist/cli.js
+```
 
 ## License
 
