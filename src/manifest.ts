@@ -179,7 +179,8 @@ export default class Manifest {
         },
       ].forEach(({ label, paths }) => {
         console.log('\n')
-        console.log([label, '='.repeat(40), paths.join('\n')].join('\n'))
+        const formattedPaths = paths.length ? paths.join('\n') : '(none)'
+        console.log([label, '='.repeat(40), formattedPaths].join('\n'))
       })
     } else {
       const { includedByManifest, includedByManifestOverride } = matchResult
