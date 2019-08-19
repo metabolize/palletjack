@@ -42,7 +42,7 @@
     "@types/tmp": "^0.1.0",
     "argparse": "^1.0.9",
     "betterset": "^2.0.1",
-    "del": "^4.1.1",
+    "del": "^5.0.0",
     "globby": "^9.2.0",
     "js-yaml": "^3.13.1",
     "multimatch": "^4.0.0",
