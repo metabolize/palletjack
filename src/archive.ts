@@ -2,7 +2,7 @@ import * as pathLib from 'path'
 import { promises as fs } from 'fs'
 import del from 'del'
 import Manifest, { GlobResult, MatchResult } from './manifest'
-import { copyFile } from './fs'
+import { copyFile, cleanGitRepo } from './fs'
 
 interface ArchiveOptions {
   manifest: Manifest
@@ -76,9 +76,13 @@ export default class Archive {
     }
 
     if (isDirectory) {
-      if ((await fs.readdir(target)).length > 0) {
-        if (overwrite) {
-          await del(target)
+      const contents = await fs.readdir(target)
+      if (contents.length > 0) {
+        const isGitRepo = contents.includes('.git')
+        if (isGitRepo) {
+          await cleanGitRepo(target)
+        } else if (overwrite) {
+          await del(target, { force: true })
         } else {
           throw Error(
             `Target directory ${target} exists and is not empty. Delete it yourself, pick a non-existent directory, or use --overwrite.`
