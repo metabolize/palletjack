@@ -82,7 +82,7 @@ export default class Archive {
         if (isGitRepo) {
           await cleanGitRepo(target)
         } else if (overwrite) {
-          await del(target)
+          await del(target, { force: true })
         } else {
           throw Error(
             `Target directory ${target} exists and is not empty. Delete it yourself, pick a non-existent directory, or use --overwrite.`
