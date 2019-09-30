@@ -61,18 +61,21 @@ correctly classify them – for inclusion or exclusion.
 
 This program does four things:
 
-- Interpret a tree, manifest file of glob patterns, and a gitignore file into a
-  list of included files.
-- Show you the reason each matched file is included, and the reason each unmatched
-  file was excluded. The output of `palletjack --verbose` includes five lists:
+- Interpret a tree, manifest file of glob patterns, and a gitignore file into
+  a list of included files.
+- Show you the reason each matched file is included, and the reason each
+  unmatched file was excluded. The output of `palletjack --verbose` includes
+  five lists:
   - Included by manifest
   - Excluded by manifest
   - Included by manifest override
   - Not in manifest
   - Gitignored and not in manfiest
-- Export a project to another folder, using the interpreted manifest file.
-- Rename files during export. This is useful for having an internal readme that's
-  different from the readme that gets shipped.
+- Export a project to another folder, using the interpreted manifest file. When
+  exporting to a Git repository, the contents of the working tree are replaced
+  with the exported contents.
+- Rename files during export. This is useful for having an internal readme
+  that's different from the readme that gets shipped.
 
 ## Installation
 
