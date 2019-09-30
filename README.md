@@ -13,10 +13,6 @@ Pack up files for distribution using a manifest file of glob patterns and a giti
 
 **This project is experimental! It may not work perfectly, and the CLI will change.**
 
-```console
-npx palletjack manifest.yml outdir
-```
-
 Example manifest for a Python project:
 
 ```yml
