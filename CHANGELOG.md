@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 – September 30, 2019
+
+- When exporting to a Git repo, automatically update the working tree.
+- Allow exporting with overwrite to folders outside the current working
+  directory.
+
 ## 0.2.1 – July 19, 2019
 
 - Omit extraneous dependency.
