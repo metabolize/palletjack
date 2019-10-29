@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1 – October 29, 2019
+
+- Rewrite shebang line in compiled CLI so it runs without having `ts-node`
+  installed.
+
 ## 0.3.0 – September 30, 2019
 
 - When exporting to a Git repo, automatically update the working tree.
