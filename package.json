@@ -11,13 +11,12 @@
   "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
-  "bin": {
-    "palletjack": "dist/cli.js"
-  },
+  "bin": "dist/cli.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "prebuild": "del dist/",
     "build": "tsc",
+    "postbuild": "shebang-trim dist/cli.js",
     "predev": "del dist/",
     "dev": "tsc --watch",
     "check-types": "tsc --noEmit --project .",
@@ -65,6 +64,7 @@
     "mocha": "^6.1.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3",
+    "shebang-trim": "^0.1.0",
     "tmp-promise": "^2.0.2",
     "ts-mocha": "^6.0.0",
     "ts-node": "^8.1.0",
