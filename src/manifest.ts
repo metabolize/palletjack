@@ -41,15 +41,12 @@ export interface GlobResult {
 
 function findDuplicates<T>(items: T[]): T[] {
   // Adapted from https://github.com/j-d-b/array-find-duplicates by Jacob Brady.
-  return items.reduce(
-    (accum, element, i) => {
-      if (items.slice(i + 1).includes(element) || accum.includes(element)) {
-        accum.push(element)
-      }
-      return accum
-    },
-    [] as T[]
-  )
+  return items.reduce((accum, element, i) => {
+    if (items.slice(i + 1).includes(element) || accum.includes(element)) {
+      accum.push(element)
+    }
+    return accum
+  }, [] as T[])
 }
 
 function allIncludes({
