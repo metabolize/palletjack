@@ -91,7 +91,7 @@ export default class Manifest {
     } catch (e) {
       throw Error(`Unable to load manifest file: ${e.message}`)
     }
-    const parsed = yaml.safeLoad(contents)
+    const parsed = yaml.safeLoad(contents) as Partial<ManifestData>
     return new this(parsed)
   }
 
