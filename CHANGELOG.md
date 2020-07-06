@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0 – July 6, 2020
+
+- Update dependencies.
+
 ## 0.3.1 – October 29, 2019
 
 - Rewrite shebang line in compiled CLI so it runs without having `ts-node`
