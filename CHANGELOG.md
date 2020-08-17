@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 – August 17, 2020
+
+- When renaming, do not also export to the original path.
+
 ## 1.0.0 – July 6, 2020
 
 - Update dependencies.
