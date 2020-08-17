@@ -110,6 +110,7 @@ describe('Manifest', () => {
     context('respectGitignore is true', () => {
       it('each file is listed on exactly one list', () => {
         const {
+          toRename,
           includedByManifest,
           excludedByManifest,
           excludedByGitignore,
@@ -119,6 +120,7 @@ describe('Manifest', () => {
         } = manifest.match(globResult, { respectGitignore: true })
 
         const allFiles = [
+          ...toRename,
           ...includedByManifest,
           ...excludedByManifest,
           ...excludedByGitignore,

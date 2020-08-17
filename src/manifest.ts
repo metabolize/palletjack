@@ -22,6 +22,7 @@ export interface MatchOptions {
 }
 
 export interface MatchResult {
+  toRename: string[]
   includedByManifest: string[]
   excludedByManifest: string[]
   excludedByGitignore: string[]
@@ -133,23 +134,31 @@ export default class Manifest {
       this.manifestData.includeOverridingGitignore
     )
 
+    const toRename = new BetterSet(
+      this.manifestData.rename.map(({ from }) => from)
+    )
+
     const includedByManifest = pathsMatchingInclude
+      .complement(toRename)
       .complement(pathsMatchingExclude)
       .complement(gitignoredPaths)
 
     const excludedByManifest = pathsMatchingInclude
+      .complement(toRename)
       .intersection(pathsMatchingExclude)
       .complement(gitignoredPaths)
 
     const includedByManifestOverride = pathsMatchingIncludeOverridingGitignore
+      .complement(toRename)
       .complement(excludedByManifest)
       .complement(includedByManifest)
 
     const excludedByGitignore = gitignoredPaths
       .complement(includedByManifestOverride)
-      .intersection(pathsMatchingInclude)
+      .intersection(pathsMatchingInclude.complement(toRename))
 
     const allNotInManifest = allPaths
+      .complement(toRename)
       .complement(pathsMatchingInclude)
       .complement(pathsMatchingExclude)
       .complement(pathsMatchingIncludeOverridingGitignore)
@@ -161,6 +170,7 @@ export default class Manifest {
     )
 
     return {
+      toRename: Array.from(toRename),
       includedByManifest: Array.from(includedByManifest),
       excludedByManifest: Array.from(excludedByManifest),
       excludedByGitignore: Array.from(excludedByGitignore),
