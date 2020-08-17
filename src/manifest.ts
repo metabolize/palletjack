@@ -134,7 +134,9 @@ export default class Manifest {
       this.manifestData.includeOverridingGitignore
     )
 
-    const toRename = new BetterSet(this.manifestData.rename.map(({from}) => from))
+    const toRename = new BetterSet(
+      this.manifestData.rename.map(({ from }) => from)
+    )
 
     const includedByManifest = pathsMatchingInclude
       .complement(toRename)

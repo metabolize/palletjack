@@ -2,7 +2,7 @@ export const exampleManifestData = {
   include: ['*.md', 'vg/**/*', '.circleci/*'],
   exclude: ['**/test_*.py'],
   includeOverridingGitignore: ['vg.egg-info/*'],
-  rename: [{from: 'CHANGELOG.md', to: 'CHCHCHCHCHANGES.md'}]
+  rename: [{ from: 'CHANGELOG.md', to: 'CHCHCHCHCHANGES.md' }],
 }
 
 export const examplePaths = [
@@ -489,9 +489,7 @@ export const globResult = {
 }
 
 export const expectedMatchResult = {
-  toRename: [
-    'CHANGELOG.md',
-  ],
+  toRename: ['CHANGELOG.md'],
   includedByManifest: [
     'README.md',
     'vg/__init__.py',
