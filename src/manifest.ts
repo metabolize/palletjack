@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs'
 import BetterSet from 'betterset'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 import globby from 'globby'
 import multimatch from 'multimatch'
 import yaml from 'js-yaml'
