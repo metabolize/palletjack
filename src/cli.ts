@@ -12,30 +12,30 @@ const { version } = require('../package.json')
 export default async function main(inArgs?: string[]) {
   // TODO Improve this interface using subcommands.
   const parser = new ArgumentParser({
-    version,
     prog: 'palletjack',
     description: 'Zip paths using globs from a manifest file',
   })
-  parser.addArgument(['--export'], {
+  parser.add_argument('-v', '--version', { action: 'version', version })
+  parser.add_argument('--export', {
     help: 'Perform the export',
     metavar: 'TARGET',
   })
-  parser.addArgument(['--overwrite'], {
+  parser.add_argument('--overwrite', {
     help: 'Overwrite target even if it already exists',
     action: 'storeTrue',
   })
-  parser.addArgument(['--basedir'], {
+  parser.add_argument('--basedir', {
     help: 'Base directory (default to .)',
   })
-  parser.addArgument(['--verbose'], {
+  parser.add_argument('--verbose', {
     help: 'Be extra verbose',
     action: 'storeTrue',
   })
-  parser.addArgument('manifest', {
+  parser.add_argument('manifest', {
     help: 'Path to a yaml file containing glob patterns',
   })
 
-  const args = parser.parseArgs(inArgs)
+  const args = parser.parse_args(inArgs)
 
   const manifest = await Manifest.load(args.manifest)
   const archive = new Archive({
