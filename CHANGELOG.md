@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 – October 13, 2020
+
+- Update Joi and argparse dependencies.
+
 ## 1.1.0 – August 17, 2020
 
 - When renaming, do not also export to the original path.
