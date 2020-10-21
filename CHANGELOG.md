@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 – October 21, 2020
+
+- Clear argparse deprecation warning.
+- Provide a better description in the CLI.
+
 ## 1.1.1 – October 13, 2020
 
 - Update Joi and argparse dependencies.
