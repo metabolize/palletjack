@@ -7,14 +7,11 @@ import Manifest, { MatchResult } from './manifest'
 import Archive from './archive'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { version } = require('../package.json')
+const { description, version } = require('../package.json')
 
 export default async function main(inArgs?: string[]) {
   // TODO Improve this interface using subcommands.
-  const parser = new ArgumentParser({
-    prog: 'palletjack',
-    description: 'Zip paths using globs from a manifest file',
-  })
+  const parser = new ArgumentParser({ prog: 'palletjack', description })
   parser.add_argument('-v', '--version', { action: 'version', version })
   parser.add_argument('--export', {
     help: 'Perform the export',
