@@ -22,14 +22,14 @@ export default async function main(inArgs?: string[]) {
   })
   parser.add_argument('--overwrite', {
     help: 'Overwrite target even if it already exists',
-    action: 'storeTrue',
+    action: 'store_true',
   })
   parser.add_argument('--basedir', {
     help: 'Base directory (default to .)',
   })
   parser.add_argument('--verbose', {
     help: 'Be extra verbose',
-    action: 'storeTrue',
+    action: 'store_true',
   })
   parser.add_argument('manifest', {
     help: 'Path to a yaml file containing glob patterns',
