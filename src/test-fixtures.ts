@@ -491,6 +491,7 @@ export const globResult = {
 export const expectedMatchResult = {
   toRename: ['CHANGELOG.md'],
   includedByManifest: [
+    '.circleci/config.yml',
     'README.md',
     'vg/__init__.py',
     'vg/_helpers.py',
@@ -498,7 +499,6 @@ export const expectedMatchResult = {
     'vg/matrix.py',
     'vg/package_version.py',
     'vg/shape.py',
-    '.circleci/config.yml',
   ],
   excludedByManifest: [
     'vg/test_almost_collinear.py',
