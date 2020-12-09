@@ -6,7 +6,7 @@
 [![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)][prettier]
 
 [npm]: https://npmjs.com/palletjack/
-[build]: https://circleci.com/gh/metabolize/palletjack/tree/master
+[build]: https://circleci.com/gh/metabolize/palletjack/tree/main
 [prettier]: https://prettier.io/
 
 Pack up files for distribution using a manifest file of glob patterns and a gitignore.

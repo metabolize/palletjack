@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 – December 8, 2020
+
+- Update del and multimatch dependencies
+
 ## 1.1.2 – October 21, 2020
 
 - Clear argparse deprecation warning.
