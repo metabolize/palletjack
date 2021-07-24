@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import BetterSet from 'betterset'
 import Joi from 'joi'
-import globby from 'globby'
+import { globby } from 'globby'
 import multimatch from 'multimatch'
 import yaml from 'js-yaml'
 
@@ -92,7 +92,7 @@ export default class Manifest {
     } catch (e) {
       throw Error(`Unable to load manifest file: ${e.message}`)
     }
-    const parsed = yaml.safeLoad(contents) as Partial<ManifestData>
+    const parsed = yaml.load(contents) as Partial<ManifestData>
     return new this(parsed)
   }
 
