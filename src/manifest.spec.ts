@@ -40,9 +40,9 @@ describe('Manifest', () => {
     it('rejects invalid input', () => {
       expect(
         () =>
-          new Manifest(({
+          new Manifest({
             bogus: 'foo',
-          } as unknown) as ManifestData)
+          } as unknown as ManifestData)
       ).to.throw('"bogus" is not allowed')
     })
   })

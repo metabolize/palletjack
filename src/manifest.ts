@@ -165,9 +165,8 @@ export default class Manifest {
 
     const notInManifest = allNotInManifest.complement(gitignoredPaths)
 
-    const notInManifestAndGitignored = allNotInManifest.intersection(
-      gitignoredPaths
-    )
+    const notInManifestAndGitignored =
+      allNotInManifest.intersection(gitignoredPaths)
 
     return {
       toRename: Array.from(toRename),
