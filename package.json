@@ -20,7 +20,7 @@
     "predev": "del dist/",
     "dev": "tsc --watch",
     "check-types": "tsc --noEmit --project .",
-    "mocha": "ts-mocha --project tsconfig.json \"src/**/*.spec.ts\"",
+    "mocha": "mocha \"src/**/*.spec.ts\"",
     "lint": "eslint \"**/*.ts\"",
     "prettier:check": "prettier --check \"**/*.@(ts|js|yml|md|json)\"",
     "prettier": "prettier --write \"**/*.@(ts|js|yml|md|json)\"",
@@ -32,20 +32,20 @@
   ],
   "repository": "metabolize/palletjack",
   "dependencies": {
-    "joi": "^17.4.1",
     "argparse": "^2.0.1",
     "betterset": "^3.0.0",
     "del": "^6.0.0",
     "globby": "^12.0.0",
+    "joi": "^17.4.1",
     "js-yaml": "^4.1.0",
     "multimatch": "^5.0.0",
     "parse-gitignore": "^1.0.1"
   },
   "devDependencies": {
     "@types/argparse": "2.0.10",
+    "@types/chai": "^4.2.21",
     "@types/fs-readfile-promise": "^3.0.1",
     "@types/js-yaml": "^4.0.2",
-    "@types/chai": "^4.2.21",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.4.2",
     "@types/tmp": "^0.2.1",
@@ -71,5 +71,8 @@
   },
   "engines": {
     "node": ">= 12.x"
+  },
+  "mocha": {
+    "require": "ts-node/register"
   }
 }
