@@ -58,10 +58,8 @@ export default class Archive {
   ) {
     const { overwrite, basedir } = this
 
-    const {
-      includedByManifest,
-      includedByManifestOverride,
-    } = await this.getMatchResult()
+    const { includedByManifest, includedByManifestOverride } =
+      await this.getMatchResult()
     const allIncludes = [...includedByManifest, ...includedByManifestOverride]
 
     let isDirectory
