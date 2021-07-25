@@ -16,7 +16,7 @@ import {
   expectedMatchResult,
 } from './test-fixtures.js'
 
-async function createExampleTree(targetPath: string) {
+async function createExampleTree(targetPath: string): Promise<void> {
   for (const examplePath of examplePaths) {
     const target = pathLib.join(targetPath, examplePath)
     await createDirForTargetFile(target)

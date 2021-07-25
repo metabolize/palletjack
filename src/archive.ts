@@ -33,7 +33,7 @@ export default class Archive {
     this.overwrite = overwrite
   }
 
-  public async collectPaths() {
+  public async collectPaths(): Promise<void> {
     const { respectGitignore, basedir } = this
     this.globResult = await this.manifest.glob({ basedir })
     this.matchResult = this.manifest.match(this.globResult, {
@@ -45,7 +45,7 @@ export default class Archive {
     )
   }
 
-  private async getMatchResult() {
+  private async getMatchResult(): Promise<MatchResult> {
     if (!this.matchResult) {
       await this.collectPaths()
     }
@@ -55,7 +55,7 @@ export default class Archive {
   public async export(
     target: string,
     { verbose = true }: { verbose: boolean }
-  ) {
+  ): Promise<void> {
     const { overwrite, basedir } = this
 
     const { includedByManifest, includedByManifestOverride } =

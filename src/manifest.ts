@@ -53,7 +53,7 @@ function findDuplicates<T>(items: T[]): T[] {
 function allIncludes({
   includedByManifest,
   includedByManifestOverride,
-}: MatchResult) {
+}: MatchResult): string[] {
   return [...includedByManifest, ...includedByManifestOverride]
 }
 
@@ -119,7 +119,10 @@ export default class Manifest {
     }: GlobResult,
     { respectGitignore }: MatchOptions
   ): MatchResult {
-    const match = (paths: BetterSet<string>, patterns: string[]) =>
+    const match = (
+      paths: BetterSet<string>,
+      patterns: string[]
+    ): BetterSet<string> =>
       new BetterSet(multimatch(Array.from(paths), patterns, { dot: true }))
 
     const allPaths = new BetterSet(allPathsArray)
@@ -182,7 +185,7 @@ export default class Manifest {
   public static logMatches(
     matchResult: MatchResult,
     { verbose = false }: { verbose: boolean }
-  ) {
+  ): void {
     /* eslint-disable no-console */
     if (verbose) {
       ;[
@@ -245,7 +248,7 @@ export default class Manifest {
     ]
   }
 
-  public logRename({ verbose = false }: { verbose?: boolean }) {
+  public logRename({ verbose = false }: { verbose?: boolean }): void {
     /* eslint-disable no-console */
     if (verbose) {
       console.log(['\n\nRename', '='.repeat(40)].join('\n'))
