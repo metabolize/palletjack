@@ -1,4 +1,4 @@
-import Manifest from './manifest'
-import Archive from './archive'
+import Manifest from './manifest.js'
+import Archive from './archive.js'
 
 export { Manifest, Archive }
