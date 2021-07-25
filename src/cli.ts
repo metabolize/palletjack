@@ -3,13 +3,18 @@
 'use strict'
 
 import { ArgumentParser } from 'argparse'
+import { promises as fs } from 'fs'
+import path from 'path'
 import Manifest, { MatchResult } from './manifest'
 import Archive from './archive'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { description, version } = require('../package.json')
 
 export default async function main(inArgs?: string[]) {
+  const { description, version } = JSON.parse(
+    await fs.readFile(path.join(__dirname, '..', 'package.json'), 'utf-8')
+  )
+
   // TODO Improve this interface using subcommands.
   const parser = new ArgumentParser({ prog: 'palletjack', description })
   parser.add_argument('-v', '--version', { action: 'version', version })
