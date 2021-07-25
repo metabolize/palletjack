@@ -77,5 +77,11 @@
     ],
     "spec": "src/**/*.spec.ts",
     "loader": "ts-node/esm"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
   }
 }
