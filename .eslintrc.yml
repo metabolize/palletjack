@@ -13,14 +13,8 @@ rules:
   no-trailing-spaces: 'error'
   eol-last: 'error'
 
-  # Argh.
-  '@typescript-eslint/explicit-function-return-type': 'off'
-  '@typescript-eslint/no-object-literal-type-assertion': 'off'
-
-  # These are not disabled by eslint-config-prettier
-  spaced-comment: 'off'
-  standard/object-curly-even-spacing: 'off'
-  one-var: 'off'
+  '@typescript-eslint/explicit-function-return-type':
+    ['error', { 'allowExpressions': true }]
 
   # Our additions.
   no-var: 'error'

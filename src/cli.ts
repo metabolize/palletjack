@@ -8,9 +8,7 @@ import path from 'path'
 import Manifest, { MatchResult } from './manifest'
 import Archive from './archive'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-
-export default async function main(inArgs?: string[]) {
+export default async function main(inArgs?: string[]): Promise<void> {
   const { description, version } = JSON.parse(
     await fs.readFile(path.join(__dirname, '..', 'package.json'), 'utf-8')
   )
@@ -70,7 +68,7 @@ export default async function main(inArgs?: string[]) {
 }
 
 if (require.main === module) {
-  ;(async () => {
+  ;(async (): Promise<void> => {
     try {
       await main()
     } catch (e) {
