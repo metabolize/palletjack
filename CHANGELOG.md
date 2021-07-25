@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0rc1 – July 24, 2021
+
+- BREAKING CHANGE: Require Node 12+ and publish as ESM.
+- Remove extraneous type dependencies.
+- Update dependencies.
+
 ## 1.1.3 – December 8, 2020
 
 - Update del and multimatch dependencies
