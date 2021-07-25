@@ -5,12 +5,20 @@
 import { ArgumentParser } from 'argparse'
 import { promises as fs } from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import Manifest, { MatchResult } from './manifest.js'
 import Archive from './archive.js'
 
 export default async function main(inArgs?: string[]): Promise<void> {
   const { description, version } = JSON.parse(
-    await fs.readFile(path.join(__dirname, '..', 'package.json'), 'utf-8')
+    await fs.readFile(
+      path.join(
+        path.dirname(fileURLToPath(import.meta.url)),
+        '..',
+        'package.json'
+      ),
+      'utf-8'
+    )
   )
 
   // TODO Improve this interface using subcommands.
@@ -67,14 +75,12 @@ export default async function main(inArgs?: string[]): Promise<void> {
   }
 }
 
-if (require.main === module) {
-  ;(async (): Promise<void> => {
-    try {
-      await main()
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e)
-      process.exit(1)
-    }
-  })()
-}
+;(async (): Promise<void> => {
+  try {
+    await main()
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e)
+    process.exit(1)
+  }
+})()
