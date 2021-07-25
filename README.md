@@ -11,8 +11,6 @@
 
 Pack up files for distribution using a manifest file of glob patterns and a gitignore.
 
-**This project is experimental! It may not work perfectly, and the CLI will change.**
-
 Example manifest for a Python project:
 
 ```yml
@@ -75,7 +73,11 @@ This program does four things:
 
 ## Installation
 
-Requires Node 10+.
+Requires Node 12+.
+
+```console
+npm install palletjack
+```
 
 Use without installing:
 
@@ -88,10 +90,6 @@ Or install globally:
 ```console
 npm install -g palletjack
 ```
-
-## Contribute
-
-Pull requests welcome!
 
 ## Development
 

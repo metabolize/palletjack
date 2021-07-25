@@ -15,11 +15,6 @@ rules:
 
   '@typescript-eslint/explicit-function-return-type': ['error', { 'allowExpressions': true }]
 
-  # These are not disabled by eslint-config-prettier
-  spaced-comment: 'off'
-  standard/object-curly-even-spacing: 'off'
-  one-var: 'off'
-
   # Our additions.
   no-var: 'error'
   prefer-const: 'error'
