@@ -1,9 +1,9 @@
 import { promises as fs } from 'fs'
-import BetterSet from 'betterset'
 import Joi from 'joi'
 import { globby } from 'globby'
 import multimatch from 'multimatch'
 import yaml from 'js-yaml'
+import BetterSet from './better-set.js'
 
 export interface Rename {
   readonly from: string

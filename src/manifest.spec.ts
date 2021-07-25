@@ -3,9 +3,9 @@ import * as pathLib from 'path'
 import { expect } from 'chai'
 import 'mocha'
 import * as tmp from 'tmp-promise'
-import Manifest, { ManifestData } from './manifest'
+import Manifest, { ManifestData } from './manifest.js'
 import yaml from 'js-yaml'
-import { createDirForTargetFile } from './fs'
+import { createDirForTargetFile } from './fs.js'
 import {
   exampleManifestData,
   examplePaths,
@@ -14,7 +14,7 @@ import {
   expectedGitignoredPaths,
   globResult,
   expectedMatchResult,
-} from './test-fixtures'
+} from './test-fixtures.js'
 
 async function createExampleTree(targetPath: string) {
   for (const examplePath of examplePaths) {
@@ -50,7 +50,7 @@ describe('Manifest', () => {
   describe('load()', () => {
     it('loads yaml manifest', () =>
       tmp.withFile(async ({ path }) => {
-        await fs.writeFile(path, yaml.safeDump(exampleManifestData), 'utf8')
+        await fs.writeFile(path, yaml.dump(exampleManifestData), 'utf8')
         const manifest = await Manifest.load(path)
         expect(manifest.manifestData).to.deep.include(exampleManifestData)
       }))
