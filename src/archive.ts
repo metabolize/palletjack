@@ -1,8 +1,8 @@
 import * as pathLib from 'path'
 import { promises as fs } from 'fs'
 import del from 'del'
-import Manifest, { GlobResult, MatchResult } from './manifest'
-import { copyFile, cleanGitRepo } from './fs'
+import Manifest, { GlobResult, MatchResult } from './manifest.js'
+import { copyFile, cleanGitRepo } from './fs.js'
 
 interface ArchiveOptions {
   manifest: Manifest
